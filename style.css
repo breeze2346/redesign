@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap");
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  font-family: 'Shippori Mincho', serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu-button {
+  position: fixed;
+  top: 4px;
+  right: 4px;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.menu-button span {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+  background-color: #2c2b2b;
+  -webkit-transition: opacity .5s,-webkit-transform 1s;
+  transition: opacity .5s,-webkit-transform 1s;
+  transition: transform 1s,opacity .5s;
+  transition: transform 1s,opacity .5s,-webkit-transform 1s;
+}
+
+.menu-button span:nth-of-type(1) {
+  -webkit-transform: translateY(-7px);
+          transform: translateY(-7px);
+}
+
+.menu-button span:nth-of-type(3) {
+  -webkit-transform: translateY(7px);
+          transform: translateY(7px);
+}
+
+.menu-button.active span:nth-of-type(1) {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.menu-button.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.menu-button.active span:nth-of-type(3) {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #232525;
+  z-index: 10;
+  padding: 32px;
+  padding-top: 64px;
+  opacity: 0;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+.menu.active {
+  opacity: 1;
+}
+
+.menu.active li {
+  -webkit-transform: none;
+          transform: none;
+  opacity: 1;
+}
+
+.menu ul {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.menu li {
+  position: relative;
+  margin-bottom: 64px;
+  opacity: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: opacity .2s ,-webkit-transform .5s;
+  transition: opacity .2s ,-webkit-transform .5s;
+  transition: transform .5s ,opacity .2s;
+  transition: transform .5s ,opacity .2s ,-webkit-transform .5s;
+}
+
+.menu li::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+}
+
+.menu li:nth-of-type(1)::after {
+  content: "-About";
+}
+
+.menu li:nth-of-type(2) {
+  -webkit-transition-delay: .2s;
+          transition-delay: .2s;
+}
+
+.menu li:nth-of-type(2)::after {
+  content: "-Hobby";
+}
+
+.menu li:nth-of-type(3) {
+  -webkit-transition-delay: .4s;
+          transition-delay: .4s;
+}
+
+.menu li:nth-of-type(3)::after {
+  content: "-Future";
+}
+
+.menu li::after {
+  position: absolute;
+  bottom: -25px;
+  left: 1%;
+  color: #77b0d6;
+  font-family: 'Roboto Slab', serif;
+}
+
+.menu li a {
+  font-size: 3rem;
+}
+
+header {
+  width: 100%;
+  height: 400px;
+}
+
+header .img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+header .img-container img {
+  width: 100%;
+  height: 100%;
+}
+
+header .img-container .main-title {
+  position: absolute;
+  right: 2%;
+  bottom: 2%;
+  font-style: italic;
+  color: #fff;
+  line-height: 1.4;
+}
+
+header .img-container .main-title span {
+  display: block;
+  color: #fff;
+  opacity: 0;
+  -webkit-animation: slide-in 2s forwards;
+          animation: slide-in 2s forwards;
+}
+
+header .img-container .main-title span:nth-of-type(1) {
+  font-size: 5rem;
+  font-family: 'Roboto Slab', serif;
+  color: #77b0d6;
+}
+
+header .img-container .main-title span:nth-of-type(2) {
+  font-size: 2.2rem;
+  -webkit-animation-delay: .6s;
+          animation-delay: .6s;
+}
+
+header .img-container .main-title span:nth-of-type(2)::before {
+  content: "-";
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+main {
+  padding-bottom: 160px;
+}
+
+.block {
+  position: relative;
+  padding: 16px;
+  padding-top: 48px;
+  padding-bottom: 64px;
+  min-height: 400px;
+  margin-bottom: 96px;
+}
+
+.block::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+  background-color: #77b0d6;
+}
+
+.block:nth-child(2) .block-title::before {
+  content: "Hobby";
+}
+
+.block:nth-child(2) .block-container {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.block:nth-child(3) .block-title::before {
+  content: "Future";
+}
+
+.block-title {
+  position: relative;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.block-title::before {
+  content: "About";
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 5rem;
+  font-family: 'Roboto Slab', serif;
+  color: rgba(119, 176, 214, 0.2);
+}
+
+.block-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: -10px;
+  width: 20px;
+  height: 4px;
+  background-color: #77b0d6;
+}
+
+.block-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.block-img-container {
+  width: 30%;
+  height: 200px;
+  margin: 0 auto;
+  margin-bottom: 16px;
+}
+
+.block-img-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.block-text-container {
+  width: 60%;
+  margin: 0 auto;
+  padding: 4px;
+  text-align: center;
+  line-height: 1.2;
+  font-family: 'Roboto Slab', serif;
+}
+
+.copylight {
+  text-align: center;
+  color: #796f6f;
+}
+/*# sourceMappingURL=style.css.map */
